@@ -31,7 +31,7 @@
                 <mxCell id="119" value="users" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
                     <mxGeometry x="80" y="60" width="200" height="160" as="geometry"/>
                 </mxCell>
-                <mxCell id="120" value="nickname&#10;email&#10;encry_password&#10;family_name&#10;first_name&#10;family_name_kana&#10;first_name_kana&#10;birth_day" style="text;strokeColor=none;fillColor=#f5f5f5;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontColor=#333333;" parent="119" vertex="1">
+                <mxCell id="120" value="nickname&#10;email&#10;password&#10;family_name&#10;first_name&#10;family_name_kana&#10;first_name_kana&#10;birth_day" style="text;strokeColor=none;fillColor=#f5f5f5;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontColor=#333333;" parent="119" vertex="1">
                     <mxGeometry y="26" width="200" height="134" as="geometry"/>
                 </mxCell>
                 <mxCell id="158" value="items" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
