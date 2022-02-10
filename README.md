@@ -16,7 +16,7 @@
 ### Association
 - has_many :items
 - has_many :comments
-- has_many :purchases_info
+- has_many :purchases_infos
 
 
 ## items テーブル
@@ -27,7 +27,7 @@
 | category_id     | integer    | null: false, foreign_key: true |
 | status_id       | integer    | null: false, foreign_key: true |
 | charge_id       | integer    | null: false, foreign_key: true |
-| prefectures_id  | integer    | null: false, foreign_key: true | 
+| prefecture_id   | integer    | null: false, foreign_key: true | 
 | date_id         | integer    | null: false, foreign_key: true |
 | price           | integer    | null: false                    |
 | user            | references | null: false, foreign_key: true |
@@ -35,7 +35,7 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :purchases_info
+- has_many :purchases_infos
 - has_many :comments
 - belongs_to_active_hash :prefectures
 - belongs_to_active_hash :category
@@ -48,7 +48,7 @@
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | post_code      | string     | null: false                    |
-| prefectures_id | integer    | null: false, foreign_key: true |
+| prefecture_id  | integer    | null: false, foreign_key: true |
 | municipalities | string     | null: false                    |
 | address        | string     | null: false                    |
 | building_name  | string     | null: false                    |
@@ -70,13 +70,13 @@
 
 
 ## purchases_info テーブル
-| Column   | Type       | Options     |
-| -------- | ---------- | ----------- |
-| user     | references | null: false |
-| item     | references | null: false |
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| user     | references | null: false, foreign_key: true |
+| item     | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :purchase
+- has_one :purchase
