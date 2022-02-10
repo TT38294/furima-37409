@@ -17,6 +17,7 @@
 - has_many :items
 - has_many :comments
 - belongs_to :purchase
+- belongs_to :purchases_info
 
 
 ## items テーブル
@@ -24,18 +25,18 @@
 | --------------- | ---------- | ------------------------------ |
 | name            | string     | null: false                    |
 | describe        | text       | null: false                    |
-| category_id     | string     | null: false                    |
-| status_id       | string     | null: false                    |
-| charge_id       | string     | null: false                    |
-| prefectures_id  | string     | null: false                    |
-| date_id         | integer    | null: false                    |
+| category_id     | references | null: false                    |
+| status_id       | references | null: false                    |
+| charge_id       | references | null: false                    |
+| prefectures_id  | references | null: false                    |
+| date_id         | references | null: false                    |
 | price           | integer    | null: false                    |
 | user            | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :purchase
+- belongs_to :purchases_info
 - has_many :comments
 - belongs_to_active_hash :prefectures
 - belongs_to_active_hash :category
@@ -45,19 +46,21 @@
 
 
 ## purchases テーブル
-| Column         | Type       | Options     |
-| -------------- | ---------- | ----------- |
-| post_code      | string     | null: false |
-| prefectures_id | string     | null: false |
-| municipalities | string     | null: false |
-| address        | string     | null: false |
-| building_name  | string     | null: false |
-| tel_number     | string     | null: false |
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+| post_code      | string     | null: false                    |
+| prefectures_id | references | null: false                    |
+| municipalities | string     | null: false                    |
+| address        | string     | null: false                    |
+| building_name  | string     |                                |
+| tel_number     | string     | null: false                    |
+| purchase_info  | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :item
+- has_many :items
+- belongs_to :purchases_info
 - belongs_to_active_hash :prefectures
 
 
@@ -79,4 +82,10 @@
 | -------- | ---------- | ------------------------------ |
 | user     | references | null: false, foreign_key: true |
 | item     | references | null: false, foreign_key: true |
-| purchase | references | null: false, foreign_key: true |
+| purchase | references | null: false                    |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+- belongs_to :purchase
