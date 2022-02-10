@@ -16,8 +16,7 @@
 ### Association
 - has_many :items
 - has_many :comments
-- belongs_to :purchase
-- belongs_to :purchases_info
+- has_many :purchases_info
 
 
 ## items テーブル
@@ -25,18 +24,18 @@
 | --------------- | ---------- | ------------------------------ |
 | name            | string     | null: false                    |
 | describe        | text       | null: false                    |
-| category_id     | references | null: false                    |
-| status_id       | references | null: false                    |
-| charge_id       | references | null: false                    |
-| prefectures_id  | references | null: false                    |
-| date_id         | references | null: false                    |
+| category_id     | references | null: false, foreign_key: true |
+| status_id       | references | null: false, foreign_key: true |
+| charge_id       | references | null: false, foreign_key: true |
+| prefectures_id  | references | null: false, foreign_key: true |
+| date_id         | references | null: false, foreign_key: true |
 | price           | integer    | null: false                    |
 | user            | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :purchases_info
+- has_many :purchases_info
 - has_many :comments
 - belongs_to_active_hash :prefectures
 - belongs_to_active_hash :category
@@ -49,7 +48,7 @@
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | post_code      | string     | null: false                    |
-| prefectures_id | references | null: false                    |
+| prefectures_id | references | null: false, foreign_key: true |
 | municipalities | string     | null: false                    |
 | address        | string     | null: false                    |
 | building_name  | string     |                                |
@@ -58,18 +57,16 @@
 
 ### Association
 
-- belongs_to :user
-- has_many :items
 - belongs_to :purchases_info
 - belongs_to_active_hash :prefectures
 
 
 ## comments テーブル
-| Column  | Type       | Options                        |
-| ------  | ---------- | ------------------------------ |
-| content | text       | null: false                    |
-| user    | references | null: false, foreign_key: true |
-| item    | references | null: false, foreign_key: true |
+| Column  | Type       | Options     |
+| ------  | ---------- | ----------- |
+| content | text       | null: false |
+| user    | references | null: false |
+| item    | references | null: false |
 
 ### Association
 
@@ -78,14 +75,14 @@
 
 
 ## purchases_info テーブル
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| user     | references | null: false, foreign_key: true |
-| item     | references | null: false, foreign_key: true |
-| purchase | references | null: false                    |
+| Column   | Type       | Options     |
+| -------- | ---------- | ----------- |
+| user     | references | null: false |
+| item     | references | null: false |
+| purchase | references | null: false |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :purchase
+- has_many :purchase
