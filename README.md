@@ -16,7 +16,7 @@
 ### Association
 - has_many :items
 - has_many :comments
-- has_one :purchases_info
+- has_many :purchases_infos
 
 
 ## items テーブル
@@ -35,7 +35,7 @@
 ### Association
 
 - belongs_to :user
-- has_many :purchases_infos
+- has_one :purchases_info
 - has_many :comments
 - belongs_to_active_hash :prefectures
 - belongs_to_active_hash :category
@@ -69,7 +69,7 @@
 | item    | references | null: false |
 
 
-## purchases_info テーブル
+## purchases_infos テーブル
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
 | user     | references | null: false, foreign_key: true |
