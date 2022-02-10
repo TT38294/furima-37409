@@ -24,11 +24,11 @@
 | --------------- | ---------- | ------------------------------ |
 | name            | string     | null: false                    |
 | describe        | text       | null: false                    |
-| category_id     | integer    | null: false, foreign_key: true |
-| status_id       | integer    | null: false, foreign_key: true |
-| charge_id       | integer    | null: false, foreign_key: true |
-| prefecture_id   | integer    | null: false, foreign_key: true | 
-| date_id         | integer    | null: false, foreign_key: true |
+| category_id     | integer    | null: false                    |
+| status_id       | integer    | null: false                    |
+| charge_id       | integer    | null: false                    |
+| prefecture_id   | integer    | null: false                    | 
+| date_id         | integer    | null: false                    |
 | price           | integer    | null: false                    |
 | user            | references | null: false, foreign_key: true |
 
@@ -51,7 +51,7 @@
 | prefecture_id  | integer    | null: false, foreign_key: true |
 | municipalities | string     | null: false                    |
 | address        | string     | null: false                    |
-| building_name  | string     | null: false                    |
+| building_name  | string     |                                |
 | tel_number     | string     | null: false                    |
 | purchase_info  | references | null: false, foreign_key: true |
 
