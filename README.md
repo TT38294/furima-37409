@@ -24,18 +24,18 @@
 | --------------- | ---------- | ------------------------------ |
 | name            | string     | null: false                    |
 | describe        | text       | null: false                    |
-| category_id     | references | null: false, foreign_key: true |
-| status_id       | references | null: false, foreign_key: true |
-| charge_id       | references | null: false, foreign_key: true |
-| prefectures_id  | references | null: false, foreign_key: true |
-| date_id         | references | null: false, foreign_key: true |
+| category_id     | integer    | null: false, foreign_key: true |
+| status_id       | integer    | null: false, foreign_key: true |
+| charge_id       | integer    | null: false, foreign_key: true |
+| prefectures_id  | integer    | null: false, foreign_key: true | 
+| date_id         | integer    | null: false, foreign_key: true |
 | price           | integer    | null: false                    |
 | user            | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_many :purchases_info
+- belongs_to :purchases_info
 - has_many :comments
 - belongs_to_active_hash :prefectures
 - belongs_to_active_hash :category
@@ -48,10 +48,10 @@
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | post_code      | string     | null: false                    |
-| prefectures_id | references | null: false, foreign_key: true |
+| prefectures_id | integer    | null: false, foreign_key: true |
 | municipalities | string     | null: false                    |
 | address        | string     | null: false                    |
-| building_name  | string     |                                |
+| building_name  | string     | null: false                    |
 | tel_number     | string     | null: false                    |
 | purchase_info  | references | null: false, foreign_key: true |
 
@@ -68,21 +68,15 @@
 | user    | references | null: false |
 | item    | references | null: false |
 
-### Association
-
-- belongs_to :user
-- belongs_to :item
-
 
 ## purchases_info テーブル
 | Column   | Type       | Options     |
 | -------- | ---------- | ----------- |
 | user     | references | null: false |
 | item     | references | null: false |
-| purchase | references | null: false |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- has_many :purchase
+- belongs_to :purchase
