@@ -1,4 +1,4 @@
-class Genre < ActiveHash::Base
+#class Genre < ActiveHash::Base
 #  category.data = [
 #    { id: 1, name: '--' },
 #    { id: 2, name: 'メンズ' },
@@ -15,5 +15,4 @@ class Genre < ActiveHash::Base
 
 #  include ActiveHash::Associations
 #  has_many :articles
-
-  end
+#  end
