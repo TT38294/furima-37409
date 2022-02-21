@@ -23,7 +23,7 @@
 | Column           | Type       | Options                        |
 | ---------------  | ---------- | ------------------------------ |
 | name             | string     | null: false                    |
-| describe         | text       | null: false                    |
+| description      | text       | null: false                    |
 | category_id      | integer    | null: false                    |
 | status_id        | integer    | null: false                    |
 | charge_id        | integer    | null: false                    |
@@ -41,7 +41,7 @@
 - belongs_to_active_hash :category
 - belongs_to_active_hash :status
 - belongs_to_active_hash :charge
-- belongs_to_active_hash :date
+- belongs_to_active_hash :shipping_days
 
 
 ## purchases テーブル
