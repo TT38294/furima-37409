@@ -5,6 +5,5 @@ RSpec.describe Category, type: :model do
     before do
       @category = FactoryBot.build(:category)
     end
-    
   end
 end

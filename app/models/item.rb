@@ -9,7 +9,7 @@ class Item < ApplicationRecord
     validates :charge_id
     validates :prefecture_id
     validates :shipping_days_id
-    validates_inclusion_of :price, in:300..9_999_999, format: { with: /\A[0-9]+\z/ }
+    validates_inclusion_of :price, in: 300..9_999_999, format: { with: /\A[0-9]+\z/ }
   end
 
   with_options numericality: { other_than: 1 } do
@@ -21,7 +21,7 @@ class Item < ApplicationRecord
   end
 
   belongs_to :user
-  
+
   has_one_attached :image
 
   belongs_to :category
@@ -29,5 +29,4 @@ class Item < ApplicationRecord
   belongs_to :charge
   belongs_to :prefecture
   belongs_to :shipping_day
-
 end
