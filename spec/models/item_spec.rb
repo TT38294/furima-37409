@@ -27,7 +27,7 @@ RSpec.describe Item, type: :model do
         expect(@item).to be_valid
       end
       it '発送までの日数が「---」以外であれば登録できる' do
-        @item.shipping_days_id = 2
+        @item.shipping_day_id = 2
         expect(@item).to be_valid
       end
       it '価格が半角数字でかつ300円〜9,999,999円であれば登録できる' do
@@ -72,10 +72,10 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Prefecture must be other than 1')
       end
-      it 'shipping_days_idが未選択だと出品できない' do
-        @item.shipping_days_id = 1
+      it 'shipping_day_idが未選択だと出品できない' do
+        @item.shipping_day_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Shipping days must be other than 1')
+        expect(@item.errors.full_messages).to include('Shipping day must be other than 1')
       end
       it 'priceが空だと出品できない' do
         @item.price = nil

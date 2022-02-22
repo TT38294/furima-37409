@@ -28,7 +28,7 @@
 | status_id        | integer    | null: false                    |
 | charge_id        | integer    | null: false                    |
 | prefecture_id    | integer    | null: false                    | 
-| shipping_days_id | integer    | null: false                    |
+| shipping_day_id  | integer    | null: false                    |
 | price            | integer    | null: false                    |
 | user             | references | null: false, foreign_key: true |
 
@@ -41,7 +41,7 @@
 - belongs_to_active_hash :category
 - belongs_to_active_hash :status
 - belongs_to_active_hash :charge
-- belongs_to_active_hash :shipping_days
+- belongs_to_active_hash :shipping_day
 
 
 ## purchases テーブル
