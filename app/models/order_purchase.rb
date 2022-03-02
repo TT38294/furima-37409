@@ -7,7 +7,7 @@ class OrderPurchase
     validates :prefecture_id, numericality: { other_than: 1 }
     validates :municipalities
     validates :address
-    validates :tel_number, format: { with: /\A[0-9]{11}\z/ }
+    validates :tel_number, format: { with: /\A\d{10,11}\z/ }
 
     validates :token
 
