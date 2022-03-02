@@ -35,7 +35,7 @@
 ### Association
 
 - belongs_to :user
-- has_one :purchases_info
+- has_one :order
 - has_many :comments
 - belongs_to_active_hash :prefectures
 - belongs_to_active_hash :category
@@ -53,12 +53,11 @@
 | address        | string     | null: false                    |
 | building_name  | string     |                                |
 | tel_number     | string     | null: false                    |
-| purchase_info  | references | null: false, foreign_key: true |
+| order          | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :purchases_info
-- belongs_to_active_hash :prefectures
+- belongs_to :order
 
 
 ## comments テーブル
@@ -69,7 +68,7 @@
 | item    | references | null: false |
 
 
-## purchases_infos テーブル
+## orders テーブル
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
 | user     | references | null: false, foreign_key: true |
