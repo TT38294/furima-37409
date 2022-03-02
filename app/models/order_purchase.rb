@@ -7,17 +7,17 @@ class OrderPurchase
     validates :prefecture_id, numericality: { other_than: 1 }
     validates :municipalities
     validates :address
-    validates :tel_number, format: { with: /\A[0-9]{11}\z/}
-    
+    validates :tel_number, format: { with: /\A[0-9]{11}\z/ }
+
     validates :token
-    
+
     validates :user_id
     validates :item_id
   end
 
   def save
-    order = Order.create( user_id: user_id, item_id: item_id)
+    order = Order.create(user_id: user_id, item_id: item_id)
     Purchase.create(order_id: order.id, post_code: post_code, prefecture_id: prefecture_id,
-       municipalities: municipalities, address: address, building_name: building_name, tel_number: tel_number)
+                    municipalities: municipalities, address: address, building_name: building_name, tel_number: tel_number)
   end
 end

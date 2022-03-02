@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe OrderPurchase, type: :model do
   describe '配送先情報の保存' do
     before do
-      @order_purchase = FactoryBot.build(:order_purchase)
+      item = FactoryBot.build(:item)
+      user = FactoryBot.build(:user)
+      @order_purchase = FactoryBot.build(:order_purchase, user_id: user, item_id: item)
     end
 
     context '配送先情報の保存ができるとき' do
@@ -37,6 +39,16 @@ RSpec.describe OrderPurchase, type: :model do
     end
 
     context '配送先情報の保存ができないとき' do
+      it 'user_idが空だと保存できない' do
+        @order_purchase.user_id = nil
+        @order_purchase.valid?
+        expect(@order_purchase.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_idが空だと保存できない' do
+        @order_purchase.item_id = nil
+        @order_purchase.valid?
+        expect(@order_purchase.errors.full_messages).to include("Item can't be blank")
+      end
       it '郵便番号が空だと保存できないこと' do
         @order_purchase.post_code = nil
         @order_purchase.valid?
@@ -50,7 +62,7 @@ RSpec.describe OrderPurchase, type: :model do
       it '都道府県が「---」だと保存できないこと' do
         @order_purchase.prefecture_id = 1
         @order_purchase.valid?
-        expect(@order_purchase.errors.full_messages).to include("Prefecture must be other than 1")
+        expect(@order_purchase.errors.full_messages).to include('Prefecture must be other than 1')
       end
       it '都道府県が空だと保存できないこと' do
         @order_purchase.prefecture_id = ''
@@ -79,6 +91,11 @@ RSpec.describe OrderPurchase, type: :model do
       end
       it '電話番号が12桁以上あると保存できないこと' do
         @order_purchase.tel_number = 12_345_678_910_123_111
+        @order_purchase.valid?
+        expect(@order_purchase.errors.full_messages).to include('Tel number is invalid')
+      end
+      it '電話番号が9桁以下あると保存できないこと' do
+        @order_purchase.tel_number = 12_345_678
         @order_purchase.valid?
         expect(@order_purchase.errors.full_messages).to include('Tel number is invalid')
       end
